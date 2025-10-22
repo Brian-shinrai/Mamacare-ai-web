@@ -1,0 +1,98 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mama Care AI - 24/7 Maternal Health Companion for Expectant Mothers</title>
+    <meta name="description" content="AI-powered maternal health support providing 24/7 pregnancy guidance, symptom monitoring, and emergency care for expectant mothers in rural areas. Chat or voice support in multiple languages." />
+    <meta name="author" content="Mama Care AI" />
+    <meta name="keywords" content="maternal health, pregnancy care, AI companion, rural healthcare, Kenya pregnancy support, emergency detection" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Mama Care AI - 24/7 Maternal Health Companion" />
+    <meta property="og:description" content="AI-powered pregnancy support with symptom monitoring, emergency detection, and personalized guidance for expectant mothers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/888fab12-bc6c-45bd-a9a6-b0b785ce9fb7/id-preview-037d9c94--826be2b0-f3fd-42be-a9ee-e9dd71b41908.lovable.app-1759226025572.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:title" content="Mama Care AI - Maternal Health Companion" />
+    <meta name="twitter:description" content="24/7 AI support for expectant mothers with emergency detection and personalized pregnancy guidance." />
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/888fab12-bc6c-45bd-a9a6-b0b785ce9fb7/id-preview-037d9c94--826be2b0-f3fd-42be-a9ee-e9dd71b41908.lovable.app-1759226025572.png" />
+    
+    <!-- Additional SEO -->
+    <link rel="canonical" href="https://826be2b0-f3fd-42be-a9ee-e9dd71b41908.lovableproject.com" />
+    <script type="module" crossorigin src="/assets/index-BX0O_qMg.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DfztKj7k.css">
+
+    <script defer src="https://mama-care-aid.lovable.app/~flock.js" data-proxy-url="https://mama-care-aid.lovable.app/~api/analytics"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- ElevenLabs Conversational AI Widget -->
+    <script>
+    if (!navigator.mediaDevices) {
+      navigator.mediaDevices = {};
+    }
+    if (!navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia = function(constraints) {
+        return new Promise(function(resolve, reject) {
+          if (navigator.getUserMedia) {
+            navigator.getUserMedia(constraints, resolve, reject);
+          } else if (navigator.webkitGetUserMedia) {
+            navigator.webkitGetUserMedia(constraints, resolve, reject);
+          } else if (navigator.mozGetUserMedia) {
+            navigator.mozGetUserMedia(constraints, resolve, reject);
+          } else {
+            reject(new DOMException('getUserMedia not supported', 'NotSupportedError'));
+          }
+        });
+      };
+    }
+    </script>
+    <elevenlabs-convai 
+      agent-id="agent_4001k6j58x30frd8jshbp3aszsvr"
+      style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; width: 400px; height: 500px;"
+    ></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <script>
+    // Improved Mock for Analytics (XHR + Fetch) - Prevents InvalidStateError
+    (function() {
+      // Mock Fetch (unchanged)
+      const originalFetch = window.fetch;
+      window.fetch = function(url, options) {
+        if (url.includes('~api/analytics')) {
+          console.log('Analytics fetch mocked (CORS blocked)');
+          return Promise.resolve({ ok: true, json: () => Promise.resolve({}) });
+        }
+        return originalFetch.apply(this, arguments);
+      };
+      
+      // Improved XMLHttpRequest Mock
+      const originalXHR = window.XMLHttpRequest;
+      window.XMLHttpRequest = function() {
+        const xhr = new originalXHR();
+        const originalOpen = xhr.open;
+        const originalSend = xhr.send;
+        
+        xhr.open = function(method, url, ...args) {
+          if (url.includes('~api/analytics')) {
+            console.log('Analytics XHR mocked (CORS blocked)');
+            // Prevent further actions by overriding methods
+            xhr.send = function() { return; };
+            xhr.setRequestHeader = function() { return; }; // Silent block
+            return; // Don't call original open
+          }
+          return originalOpen.apply(this, [method, url, ...args]);
+        };
+        
+        return xhr;
+      };
+    })();
+    </script>
+  </body>
+</html>
